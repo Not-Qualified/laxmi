@@ -20,12 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '$e2&q&6m&t*4q-_(zqxun#efp=na0ojc09izxd8mo5%w(as_o7'
+SECRET_KEY = '$e2&q&6m&t()**233@#!)zqxun#weer#2ona0ojc09izxd8mo5%w(as_o7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 
 
 # Application definition
@@ -59,7 +59,7 @@ ROOT_URLCONF = 'laxmi.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -122,4 +122,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/static/'
+# Django - load Static Files with this URL
+STATIC_URL = '/stc/'
+
+# This is Only for DEVELOPMENT Environment
+# This will be the list of all the static files to django 
+# consider as static files when collecting static files
+STATICFILES_DIRS = [ 
+    os.path.join(BASE_DIR, "statics"),
+]
+
+
+# Collect Static & Use this in PRODUCTION Environment
+# Django will create this folder when you collect all static files
+# and django will serve the files from this folder
+
+#STATIC_ROOT = os.path.join(BASE_DIR, "assets")
