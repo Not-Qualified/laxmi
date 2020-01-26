@@ -85,7 +85,7 @@ class Person(models.Model):
 
 
 	def get_absolute_url(self):
-		return reverse("customer-detail", kwargs={"pk": self.pk})
+		return reverse("person-detail", kwargs={"pk": self.pk})
 
 
 	"""

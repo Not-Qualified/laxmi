@@ -39,10 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Custom App for Project
-    "person.apps.PersonConfig"
+    "person.apps.PersonConfig",
 
     # Third Party App
-
+    "crispy_forms",
 ]
 
 MIDDLEWARE = [
@@ -139,3 +139,6 @@ STATICFILES_DIRS = [
 # and django will serve the files from this folder
 
 #STATIC_ROOT = os.path.join(BASE_DIR, "assets")
+
+# Crispy Form Package Setting for Styling Form and Setting CSS Framework
+CRISPY_TEMPLATE_PACK = "bootstrap4"
