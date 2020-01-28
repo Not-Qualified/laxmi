@@ -8,15 +8,20 @@
 
 	<!-- BootStrap CSS -->
 	<link rel="stylesheet" href="{% static 'css/bootstrap-4.4.1.min.css' %}">
+	
+	<!-- DataTables CSS for BootStrap4 -->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/dataTables.bootstrap4.min.css' %}">
 
-	<!-- dataTable CSS -->
-	<link rel="stylesheet" type="text/css" href="{% static 'css/jquery.dataTables.min.css' %}">
 	<link rel="shortcut icon" type="image/png" href="{% static 'favicon/favicon-32x32.png' %}" >
 
 	<title>RajLaxmi Jewellers</title>
 
 </head>
-<body>
+
+
+
+<body style="padding-top: 4.5rem;">
+{% with url_name=request.resolver_match.url_name %}
 
 	<!-- Navigation Bar -->
 	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -28,9 +33,16 @@
 		<div class="collapse navbar-collapse" id="navbarCollapse">
 
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active">
-					<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-				</li>
+				{% if url_name == "person-create" %}
+					<li class="nav-item active">
+				{% else %}
+					<li class="nav-item">
+				{% endif %}
+						<a class="nav-link" href="#">Home
+							<span class="sr-only">(current)</span>
+						</a>
+					</li>
+
 				<li class="nav-item">
 					<a class="nav-link" href="#">Link</a>
 				</li>
@@ -43,18 +55,24 @@
 		</div>
 	</nav>
 
-
 	<main role="main" class="container">
 		{% block content %}
 		{% endblock content %}
 	</main>
 
+
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	<!-- dataTable.js also available Here -->
 	<script src="{% static 'js/jquery-3.4.1.slim.min.js' %}"></script>
+	<script src="{% static 'js/jquery.dataTables.min.js' %}"></script>
     <script src="{% static 'js/popper-1.16.0.min.js' %}"></script>
     <script src="{% static 'js/bootstrap-4.4.1.min.js' %}"></script>
-    <script src="{% static 'js/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'js/dataTables.bootstrap4.min.js' %}"></script>
+
+    {% block script %}
+    {% endblock script %}
+
+    {% endwith %}
 </body>
 </html>

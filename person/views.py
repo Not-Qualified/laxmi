@@ -10,17 +10,17 @@ class CreatePersonView(CreateView):
 			  "mobile_one","mobile_two", "email", "address_one", "address_two",
 			  "pincode", "city", "country", "detail", ]
 
-"""
-class ListCustomerView(ListView):
-	model = Customer
+
+class ListPersonView(ListView):
+	model = Person
 	ordering = ["-date_added"]
-	paginate_by = 5
 
 
-class DetailCustomerView(DetailView):
-	model = Customer
+class DetailPersonView(DetailView):
+	model = Person
 
 
+"""
 class UpdateCustomerView(UpdateView):
 	model = Customer
 	fields = ["first_name", "middle_name", "last_name", "sex", "job",

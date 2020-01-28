@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<table id="person_table" class="table table-hover table-striped" style="width:100%">
+	<!-- <caption>List of Persons</caption> -->
+	<thead>
+		<tr>
+			<th>First Name</th>
+			<th>Middle Name</th>
+			<th>Last Name</th>
+			<th>Sex</th>
+			<th>Job</th>
+			<th>Mobile</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for person in object_list %}
+			<tr>
+				<td>{{ person.first_name }}</td>
+				<td>{{ person.middle_name }}</td>
+				<td>{{ person.last_name }}</td>
+				<td>
+				{% if person.sex == "F" %}
+					FeMale
+				{% else %}
+					Male
+				{% endif %}
+				</td>
+				<td>{{ person.job }}</td>
+				<td>{{ person.mobile_one }}, {{ person.mobile_two }}</td>
+			</tr>
+		{% endfor %}
+	</tbody>
+	<tfoot>
+		<tr>
+			<th>First Name</th>
+			<th>Middle Name</th>
+			<th>Last Name</th>
+			<th>Sex</th>
+			<th>Job</th>
+			<th>Mobile</th>
+		</tr>
+	</tfoot>
+</table>
+{% endblock content %}
+{% block script %}
+	<script type="text/javascript">
+		$(document).ready(function() {
+		    $('#person_table').DataTable({
+		    	"pagingType": "full_numbers",
+		    	"lengthMenu": [[7, 10, 25, 50, -1], [7, 10, 25, 50, "All"]],
+		    });
+		} );
+	</script>
+{% endblock script %}

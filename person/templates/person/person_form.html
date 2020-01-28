@@ -2,38 +2,19 @@
 {% load static %}
 {% load crispy_forms_tags %}
 {% block content %}
-
-{% with url_name=request.resolver_match.url_name %}
-					{% if url_name == "person-create" %}
-						<h1>Customer Creation</h1>
-						<p>New Customer Form</p>
-					{% elif url_name == "customer-update" %}
-						<h1>Customer Updation</h1>
-						<p>Update Customer Form</p>
-					{% endif %}
-
-				  	{% if url_name == "customer-create" %}
-				  		<li class="active">Create</li>
-				  	{% elif url_name == "customer-update" %}
-				  		<li class="active">Update</li>
-				  	{% endif %}
-
-						<form method="POST">
-							{% csrf_token %}
-							<table id="person_table">
-							{{ form|crispy }}
-							</table>
-							{% if url_name == "person-create" %}
-								<input class="btn btn-success btn-lg btn-block" type="submit" value="Create" />
-							{% elif url_name == "customer-update" %}
-								<input class="btn btn-success btn-lg btn-block" type="submit" value="Update" />
-							{% endif %}
-						</form>
-						<br />
-						{% if url_name == "customer-create" %}
-							<a class="btn btn-primary btn-lg btn-block" href="{% url 'customer-list' %}">Cancel</a>
-						{% elif url_name == "customer-update" %}
-							<a class="btn btn-primary btn-lg btn-block" href="{% url 'customer-detail' object.id %}">Cancel</a>
-						{% endif %}
-{% endwith %}
+	<form method="POST">
+		{% csrf_token %}
+		{{ form|crispy }}
+		{% if url_name == "person-create" %}
+			<input class="btn btn-success btn-lg btn-block" type="submit" value="Create" />
+		{% elif url_name == "customer-update" %}
+			<input class="btn btn-success btn-lg btn-block" type="submit" value="Update" />
+		{% endif %}
+	</form>
+	<br />
+	{% if url_name == "customer-create" %}
+		<a class="btn btn-primary btn-lg btn-block" href="{% url 'customer-list' %}">Cancel</a>
+	{% elif url_name == "customer-update" %}
+		<a class="btn btn-primary btn-lg btn-block" href="{% url 'customer-detail' object.id %}">Cancel</a>
+	{% endif %}
 {% endblock content %}
