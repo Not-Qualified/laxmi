@@ -5,20 +5,17 @@
 	<!-- <caption>List of Persons</caption> -->
 	<thead>
 		<tr>
-			<th>First Name</th>
-			<th>Middle Name</th>
-			<th>Last Name</th>
+			<th>Name</th>
 			<th>Sex</th>
 			<th>Job</th>
 			<th>Mobile</th>
+			<th>Location</th>
 		</tr>
 	</thead>
 	<tbody>
 		{% for person in object_list %}
 			<tr>
-				<td>{{ person.first_name }}</td>
-				<td>{{ person.middle_name }}</td>
-				<td>{{ person.last_name }}</td>
+				<td>{{ person.first_name }} {{ person.last_name }}</td>
 				<td>
 				{% if person.sex == "F" %}
 					FeMale
@@ -28,17 +25,17 @@
 				</td>
 				<td>{{ person.job }}</td>
 				<td>{{ person.mobile_one }}, {{ person.mobile_two }}</td>
+				<td>{{ person.city }}, {{ person.country }}</td>
 			</tr>
 		{% endfor %}
 	</tbody>
 	<tfoot>
 		<tr>
-			<th>First Name</th>
-			<th>Middle Name</th>
-			<th>Last Name</th>
+			<th>Name</th>
 			<th>Sex</th>
 			<th>Job</th>
 			<th>Mobile</th>
+			<th>Location</th>
 		</tr>
 	</tfoot>
 </table>

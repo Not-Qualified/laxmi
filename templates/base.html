@@ -38,13 +38,17 @@
 				{% else %}
 					<li class="nav-item">
 				{% endif %}
-						<a class="nav-link" href="#">Home
+						<a class="nav-link" href="{% url 'person-create' %}">Create
 							<span class="sr-only">(current)</span>
 						</a>
 					</li>
 
-				<li class="nav-item">
-					<a class="nav-link" href="#">Link</a>
+				{% if url_name == "person-list" %}
+					<li class="nav-item active">
+				{% else %}
+					<li class="nav-item">
+				{% endif %}
+					<a class="nav-link" href="{% url 'person-list' %}">List</a>
 				</li>
 			</ul>
 

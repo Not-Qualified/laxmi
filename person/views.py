@@ -20,15 +20,13 @@ class DetailPersonView(DetailView):
 	model = Person
 
 
-"""
-class UpdateCustomerView(UpdateView):
-	model = Customer
+class UpdatePersonView(UpdateView):
+	model = Person
 	fields = ["first_name", "middle_name", "last_name", "sex", "job",
 			  "mobile_one","mobile_two", "email", "address_one", "address_two",
 			  "pincode", "city", "country", "detail", ]
 
 
-class DeleteCustomerView(DeleteView):
-	model = Customer
+class DeletePersonView(DeleteView):
+	model = Person
 	success_url = "/"
-"""
