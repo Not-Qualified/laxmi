@@ -17,7 +17,7 @@
 		<tr>
 			<td>{{ object.first_name }}</td>
 			<td>{{ object.middle_name }}</td>
-			<td>{{ pobject.last_name }}</td>
+			<td>{{ object.last_name }}</td>
 			<td>
 			{% if object.sex == "F" %}
 				FeMale
@@ -25,7 +25,7 @@
 				Male
 			{% endif %}
 			</td>
-			<td>{{ pobject.job }}</td>
+			<td>{{ object.job }}</td>
 			<td>{{ object.mobile_one }}, {{ object.mobile_two }}</td>
 		</tr>
 	</tbody>
@@ -40,6 +40,8 @@
 		</tr>
 	</tfoot>
 </table>
+<a href="{% url 'person-update' object.id %}" class="btn btn-primary btn-lg">Update</a>
+<a href="{% url 'person-delete' object.id %}" class="btn btn-danger btn-lg">Delete</a>
 {% endblock content %}
 {% block script %}
 	<script type="text/javascript">

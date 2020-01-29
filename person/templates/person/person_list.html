@@ -10,12 +10,15 @@
 			<th>Job</th>
 			<th>Mobile</th>
 			<th>Location</th>
+			<th>Date</th>
 		</tr>
 	</thead>
 	<tbody>
 		{% for person in object_list %}
 			<tr>
-				<td>{{ person.first_name }} {{ person.last_name }}</td>
+				<td>
+				<a href="{% url 'person-detail' person.id %}">{{ person.first_name }} {{ person.last_name }}</a>
+				</td>
 				<td>
 				{% if person.sex == "F" %}
 					FeMale
@@ -26,6 +29,7 @@
 				<td>{{ person.job }}</td>
 				<td>{{ person.mobile_one }}, {{ person.mobile_two }}</td>
 				<td>{{ person.city }}, {{ person.country }}</td>
+				<td>{{ person.date_added }}</td>
 			</tr>
 		{% endfor %}
 	</tbody>
@@ -36,6 +40,7 @@
 			<th>Job</th>
 			<th>Mobile</th>
 			<th>Location</th>
+			<th>Date</th>
 		</tr>
 	</tfoot>
 </table>
@@ -48,5 +53,6 @@
 		    	"lengthMenu": [[7, 10, 25, 50, -1], [7, 10, 25, 50, "All"]],
 		    });
 		} );
+		// console.log(Intl.DateTimeFormat().resolvedOptions().timeZone)
 	</script>
 {% endblock script %}

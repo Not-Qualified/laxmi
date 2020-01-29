@@ -7,14 +7,15 @@
 		{{ form|crispy }}
 		{% if url_name == "person-create" %}
 			<input class="btn btn-success btn-lg btn-block" type="submit" value="Create" />
-		{% elif url_name == "customer-update" %}
+		{% elif url_name == "person-update" %}
 			<input class="btn btn-success btn-lg btn-block" type="submit" value="Update" />
 		{% endif %}
 	</form>
 	<br />
-	{% if url_name == "customer-create" %}
-		<a class="btn btn-primary btn-lg btn-block" href="{% url 'customer-list' %}">Cancel</a>
-	{% elif url_name == "customer-update" %}
-		<a class="btn btn-primary btn-lg btn-block" href="{% url 'customer-detail' object.id %}">Cancel</a>
+	{% if url_name == "person-create" %}
+		<a class="btn btn-primary btn-lg btn-block" href="{% url 'person-list' %}">Cancel</a>
+	{% elif url_name == "person-update" %}
+		<a class="btn btn-primary btn-lg btn-block" href="{% url 'person-detail' object.id %}">Cancel</a>
 	{% endif %}
+	<br />
 {% endblock content %}
