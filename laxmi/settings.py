@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # Custom App for Project
     "person.apps.PersonConfig",
+    "price.apps.PriceConfig",
 
     # Third Party App
     "crispy_forms",
@@ -111,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC' # Always use UTC
+TIME_ZONE = 'Asia/Kolkata' # Always use UTC, Temporary Fix
 
 USE_I18N = True
 
