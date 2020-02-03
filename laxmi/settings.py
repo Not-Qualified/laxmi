@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # Custom App for Project
     "person.apps.PersonConfig",
     "price.apps.PriceConfig",
+    "product.apps.ProductConfig",
 
     # Third Party App
     "crispy_forms",
