@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+	<form method="POST">
+		{% csrf_token %}
+		{{ form|crispy }}
+		{% if path == product_category_create %}
+			<input class="btn btn-success btn-lg btn-block" type="submit" value="Create" />
+		{% elif path == product_category_update %}
+			<input class="btn btn-success btn-lg btn-block" type="submit" value="Update" />
+		{% endif %}
+	</form>
+	<br />
+	{% if path == product_category_create %}
+		<a class="btn btn-primary btn-lg btn-block" href="{% url 'product-list' %}">Cancel</a>
+	{% elif path == product_category_update %}
+		<a class="btn btn-primary btn-lg btn-block" href="{% url 'product-detail' object.id %}">Cancel</a>
+	{% endif %}
+	<br />
+{% endblock content %}

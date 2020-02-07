@@ -4,7 +4,8 @@ from django.core.validators import (RegexValidator, MinLengthValidator,
 
 
 class ProductCategory(models.Model):
-	p_category = RegexValidator(regex="^([A-Za-z0-9\-\ ]+)$")
+	p_category = RegexValidator(regex="^([A-Za-z0-9\-\ ]+)$",
+								message="Only Letters, Numbers and Hyphen(-) Allowed")
 
 	product_category = models.CharField(max_length=50, unique=True,
 										validators=[p_category, 

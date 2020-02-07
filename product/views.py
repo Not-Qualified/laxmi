@@ -25,3 +25,12 @@ class DetailProductView(DetailView):
 class DeleteProductView(DeleteView):
 	model = Product
 	success_url = "/"
+
+
+class CreateProductCategoryView(CreateView):
+	model = ProductCategory
+	fields = ["product_category"]
+
+
+class ListProductCategoryView(ListView):
+	model = ProductCategory
