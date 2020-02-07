@@ -5,16 +5,16 @@
 	<form method="POST">
 		{% csrf_token %}
 		{{ form|crispy }}
-		{% if url_name == "price-create" %}
+		{% if path == price_create %}
 			<input class="btn btn-success btn-lg btn-block" type="submit" value="Create" />
-		{% elif url_name == "price-update" %}
+		{% elif path == price_update %}
 			<input class="btn btn-success btn-lg btn-block" type="submit" value="Update" />
 		{% endif %}
 	</form>
 	<br />
-	{% if url_name == "price-create" %}
+	{% if path == price_create %}
 		<a class="btn btn-primary btn-lg btn-block" href="{% url 'price-list' %}">Cancel</a>
-	{% elif url_name == "price-update" %}
+	{% elif path == price_update %}
 		<a class="btn btn-primary btn-lg btn-block" href="{% url 'price-detail' object.id %}">Cancel</a>
 	{% endif %}
 	<br />

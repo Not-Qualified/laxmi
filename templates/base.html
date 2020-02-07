@@ -1,7 +1,25 @@
 {% load static %}
+
+{% with path=request.path %}
+
+{% url 'person-create' as person_create %}
+{% url 'person-update' object.id as person_update %}
+{% url 'person-list' as person_list %}
+{% url 'person-detail' object.id as person_detail %}
+{% url 'person-delete' object.id as person_delete %}
+
 {% url 'price-create' as price_create %}
+{% url 'price-update' object.id as price_update %}
 {% url 'price-list' as price_list %}
 {% url 'price-detail' object.id as price_detail %}
+{% url 'price-delete' object.id as price_delete %}
+
+{% url 'product-create' as product_create %}
+{% url 'product-update' object.id as product_update %}
+{% url 'product-list' as product_list %}
+{% url 'product-detail' object.id as product_detail %}
+{% url 'product-delete' object.id as product_delete %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +42,6 @@
 
 
 <body style="padding-top: 4.5rem;">
-{% with url_name=request.resolver_match.url_name %}
 
 	<!-- Navigation Bar -->
 	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -36,25 +53,25 @@
 		<div class="collapse navbar-collapse" id="navbarCollapse">
 
 			<ul class="navbar-nav mr-auto">
-				{% if url_name == "person-create" %}
-					<li class="nav-item active">
-				{% else %}
-					<li class="nav-item">
-				{% endif %}
-						<a class="nav-link" href="{% url 'person-create' %}">Create
-							<span class="sr-only">(current)</span>
-						</a>
-					</li>
 
-				{% if url_name == "person-list" %}
-					<li class="nav-item active">
+				{% if path == person_create or path == person_update or path == person_list or path == person_detail or path == person_delete %}
+					<li class="nav-item active dropdown">
 				{% else %}
-					<li class="nav-item">
+					<li class="nav-item dropdown">
 				{% endif %}
-					<a class="nav-link" href="{% url 'person-list' %}">List</a>
+				    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Person</a>
+				    <div class="dropdown-menu">
+				        <a class="dropdown-item" href="{{ person_create }}">Create</a>
+				        <a class="dropdown-item" href="{{ person_list }}">List</a>
+				    </div>
 				</li>
 
-				{% if request.path == price_create or request.path == price_list or request.path == price_detail %}
+				<!-- <li class="nav-item active">
+				<li class="nav-item">
+					<a class="nav-link" href="#">Create</a>
+				</li> -->
+
+				{% if path == price_create or path == price_update or path == price_list or path == price_detail or path == price_delete %}
 					<li class="nav-item active dropdown">
 				{% else %}
 					<li class="nav-item dropdown">
@@ -63,6 +80,18 @@
 				    <div class="dropdown-menu">
 				        <a class="dropdown-item" href="{{ price_create }}">Create</a>
 				        <a class="dropdown-item" href="{{ price_list }}">List</a>
+				    </div>
+				</li>
+
+				{% if path == product_create or path == product_update or path == product_list or path == product_detail or path == product_delete %}
+					<li class="nav-item active dropdown">
+				{% else %}
+					<li class="nav-item dropdown">
+				{% endif %}
+				    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Product</a>
+				    <div class="dropdown-menu">
+				        <a class="dropdown-item" href="{{ product_create }}">Create</a>
+				        <a class="dropdown-item" href="{{ product_list }}">List</a>
 				    </div>
 				</li>
 

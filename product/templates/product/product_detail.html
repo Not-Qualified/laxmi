@@ -8,17 +8,17 @@
 			<th>Product Type</th>
 			<th>Product Category</th>
 			<th>Product Weight</th>
+			<th>Date Created</th>
 		</tr>
 	</thead>
 	<tbody>
-		{% for product in object_list %}
 			<tr>
 				<td>{{ product.product_name }}</td>
 				<td>{{ product.product_type }}</td>
 				<td>{{ product.product_category }}</td>
 				<td>{{ product.product_weight }}</td>
+				<td>{{ product.date_added }}</td>
 			</tr>
-		{% endfor %}
 	</tbody>
 	<tfoot>
 		<tr>
@@ -26,6 +26,7 @@
 			<th>Product Type</th>
 			<th>Product Category</th>
 			<th>Product Weight</th>
+			<th>Date Created</th>
 		</tr>
 	</tfoot>
 </table>
@@ -34,8 +35,9 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 		    $('#product_table').DataTable({
-		    	"pagingType": "full_numbers",
-		    	"lengthMenu": [[7, 10, 25, 50, -1], [7, 10, 25, 50, "All"]],
+		    	"paging":   false,
+		    	"info":     false,
+		    	"filter":   false,
 		    });
 		} );
 	</script>
