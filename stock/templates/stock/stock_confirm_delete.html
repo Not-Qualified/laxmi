@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Delete Price</h2>
+<form method="POST">
+	{% csrf_token %}
+	<h2>Are You Sure You Want to Delete - {{ object.product }} with Stock Quanity of {{ object.product_quantity }} ?</h2>
+	<br />
+	<h5>***Once You Delete Here, there is no way You can Get it Back, So think Twice</h5>
+	<br /><br />
+	<input class="btn btn-danger btn-lg btn-block" type="submit" value="Delete" />
+</form>
+<br />
+
+<a class="btn btn-primary btn-lg btn-block" href="{% url 'stock-detail' object.id %}">Cancel</a>
+{% endblock content %}

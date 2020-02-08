@@ -4,17 +4,17 @@
 	<form method="POST">
 		{% csrf_token %}
 		{{ form|crispy }}
-		{% if path == price_create %}
+		{% if path == stock_create %}
 			<input class="btn btn-success btn-lg btn-block" type="submit" value="Create" />
-		{% elif path == price_update %}
+		{% elif path == stock_update %}
 			<input class="btn btn-success btn-lg btn-block" type="submit" value="Update" />
 		{% endif %}
 	</form>
 	<br />
-	{% if path == price_create %}
-		<a class="btn btn-primary btn-lg btn-block" href="{% url 'price-list' %}">Cancel</a>
-	{% elif path == price_update %}
-		<a class="btn btn-primary btn-lg btn-block" href="{% url 'price-detail' object.id %}">Cancel</a>
+	{% if path == stock_create %}
+		<a class="btn btn-primary btn-lg btn-block" href="{% url 'stock-list' %}">Cancel</a>
+	{% elif path == stock_update %}
+		<a class="btn btn-primary btn-lg btn-block" href="{% url 'stock-detail' object.id %}">Cancel</a>
 	{% endif %}
 	<br />
 {% endblock content %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<table id="stock_table" class="table table-hover table-striped" style="width:100%">
+	<!-- <caption>List of Persons</caption> -->
+	<thead>
+		<tr>
+			<th>Product</th>
+			<th>Available Quantity</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for stock in object_list %}
+			<tr>
+				<td>{{ stock.product }}</td>
+				<td>{{ stock.product_quantity }}</td>
+			</tr>
+		{% endfor %}
+	</tbody>
+	<tfoot>
+		<tr>
+			<th>Product</th>
+			<th>Available Quantity</th>
+		</tr>
+	</tfoot>
+</table>
+{% endblock content %}
+{% block script %}
+	<script type="text/javascript">
+		$(document).ready(function() {
+		    $('#stock_table').DataTable({
+		    	"pagingType": "full_numbers",
+		    	"lengthMenu": [[7, 10, 25, 50, -1], [7, 10, 25, 50, "All"]],
+		    });
+		} );
+	</script>
+{% endblock script %}

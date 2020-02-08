@@ -25,6 +25,13 @@
 {% url 'product-category-update' object.id as product_category_update %}
 {% url 'product-category-detail' object.id as product_category_detail %}
 {% url 'product-category-delete' object.id as product_category_delete %}
+
+{% url 'stock-create' as stock_create %}
+{% url 'stock-list' as stock_list %}
+{% url 'stock-update' object.id as stock_update %}
+{% url 'stock-detail' object.id as stock_detail %}
+{% url 'stock-delete' object.id as stock_delete %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -102,6 +109,22 @@
 				        <a class="dropdown-item" href="{{ product_category_list }}">Category - List</a>
 				    </div>
 				</li>
+
+
+
+				{% if path == stock_create or path == stock_update or path == stock_list or path == stock_detail or path == stock_delete %}
+					<li class="nav-item active dropdown">
+				{% else %}
+					<li class="nav-item dropdown">
+				{% endif %}
+				    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Stock</a>
+				    <div class="dropdown-menu">
+				        <a class="dropdown-item" href="{{ stock_create }}">Create</a>
+				        <a class="dropdown-item" href="{{ stock_list }}">List</a>
+				    </div>
+				</li>
+
+
 
 			</ul>
 
