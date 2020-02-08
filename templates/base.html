@@ -21,7 +21,10 @@
 {% url 'product-delete' object.id as product_delete %}
 
 {% url 'product-category-create' as product_category_create %}
-
+{% url 'product-category-list' as product_category_list %}
+{% url 'product-category-update' object.id as product_category_update %}
+{% url 'product-category-detail' object.id as product_category_detail %}
+{% url 'product-category-delete' object.id as product_category_delete %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -94,6 +97,9 @@
 				    <div class="dropdown-menu">
 				        <a class="dropdown-item" href="{{ product_create }}">Create</a>
 				        <a class="dropdown-item" href="{{ product_list }}">List</a>
+				        <div class="dropdown-divider"></div>
+				        <a class="dropdown-item" href="{{ product_category_create }}">Category - Create</a>
+				        <a class="dropdown-item" href="{{ product_category_list }}">Category - List</a>
 				    </div>
 				</li>
 

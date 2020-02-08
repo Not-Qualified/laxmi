@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<table id="product_category_table" class="table table-hover table-striped" style="width:100%">
+	<!-- <caption>List of Persons</caption> -->
+	<thead>
+		<tr>
+			<th>Product Category Name</th>
+			<th>Date Added</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>{{ productcategory.product_category }}</td>
+			<td>{{ productcategory.date_added }}</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<th>Product Category Name</th>
+			<th>Date Added</th>
+		</tr>
+	</tfoot>
+</table>
+{% endblock content %}
+{% block script %}
+	<script type="text/javascript">
+		$(document).ready(function() {
+		    $('#product_category_table').DataTable({
+		    	"paging":   false,
+		    	"info":     false,
+		    	"filter":   false,
+		    });
+		} );
+	</script>
+{% endblock script %}

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic import (CreateView, ListView, UpdateView, 
 								  DetailView, DeleteView)
 from .models import Product, ProductCategory
+
 # Create your views here.
 
 class CreateProductView(CreateView):
@@ -34,3 +35,17 @@ class CreateProductCategoryView(CreateView):
 
 class ListProductCategoryView(ListView):
 	model = ProductCategory
+
+
+class UpdateProductCategoryView(UpdateView):
+	model = ProductCategory
+	fields = ["product_category"]
+
+
+class DetailProductCategoryView(DetailView):
+	model = ProductCategory
+
+
+class DeleteProductCategoryView(DeleteView):
+	model = ProductCategory
+	success_url = "/"

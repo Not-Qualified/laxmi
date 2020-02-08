@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.validators import (RegexValidator, MinLengthValidator, 
 									MaxLengthValidator, )
+from django.urls import reverse
 
 
 class ProductCategory(models.Model):
@@ -13,6 +14,9 @@ class ProductCategory(models.Model):
 													MaxLengthValidator(limit_value=50), ])
 
 	date_added = models.DateTimeField(auto_now_add=True)
+
+	def get_absolute_url(self):
+		return reverse("product-category-detail", kwargs={"pk": self.pk})
 
 	def __str__(self):
 		return f"{self.product_category}"
@@ -37,4 +41,4 @@ class Product(models.Model):
 	date_added = models.DateTimeField(auto_now_add=True)
 
 	def get_absolute_url(self):
-		pass
+		return reverse("product-detail", kwargs={"pk": self.pk})

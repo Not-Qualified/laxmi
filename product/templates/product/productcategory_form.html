@@ -12,9 +12,9 @@
 	</form>
 	<br />
 	{% if path == product_category_create %}
-		<a class="btn btn-primary btn-lg btn-block" href="{% url 'product-list' %}">Cancel</a>
+		<a class="btn btn-primary btn-lg btn-block" href="{% url 'product-category-list' %}">Cancel</a>
 	{% elif path == product_category_update %}
-		<a class="btn btn-primary btn-lg btn-block" href="{% url 'product-detail' object.id %}">Cancel</a>
+		<a class="btn btn-primary btn-lg btn-block" href="{% url 'product-category-detail' object.id %}">Cancel</a>
 	{% endif %}
 	<br />
 {% endblock content %}
