@@ -40,5 +40,8 @@ class Product(models.Model):
 
 	date_added = models.DateTimeField(auto_now_add=True)
 
+	def __str__(self):
+		return f"{self.product_name} - {self.product_category}"
+
 	def get_absolute_url(self):
 		return reverse("product-detail", kwargs={"pk": self.pk})
