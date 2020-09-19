@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Sell#, SellProductList
+from .models import Sell, SellProductList
 # Register your models here.
 # class SellProductListInline(admin.StackedInline):
 # 	model = SellProductList
@@ -11,4 +11,4 @@ from .models import Sell#, SellProductList
 
 
 admin.site.register(Sell, )
-# admin.site.register(SellProductList)
+admin.site.register(SellProductList)
