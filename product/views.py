@@ -7,7 +7,19 @@ from .models import Product, ProductCategory
 
 class CreateProductView(CreateView):
 	model = Product
-	fields = ["product_name", "product_type", "product_category", "product_weight"]
+	fields = ["product_name", 
+				"product_type", 
+				"product_category", 
+				"product_specification", 
+				"product_gross_weight", 
+				"product_other_weight", 
+				"product_net_weight", 
+				"product_seller", 
+				"product_labour", 
+				"product_other_charge_diamond", 
+				"product_other_charge_rodium", 
+				"product_other_charge_pearl", 
+				"product_measurement", ]
 
 
 class ListProductView(ListView):
@@ -16,7 +28,19 @@ class ListProductView(ListView):
 
 class UpdateProductView(UpdateView):
 	model = Product
-	fields = ["product_name", "product_type", "product_category", "product_weight"]
+	fields = ["product_name", 
+				"product_type", 
+				"product_category", 
+				"product_specification", 
+				"product_gross_weight", 
+				"product_other_weight", 
+				"product_net_weight", 
+				"product_seller", 
+				"product_labour", 
+				"product_other_charge_diamond", 
+				"product_other_charge_rodium", 
+				"product_other_charge_pearl", 
+				"product_measurement", ]
 
 
 class DetailProductView(DetailView):
